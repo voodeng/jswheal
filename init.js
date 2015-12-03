@@ -6,8 +6,7 @@
 * @require jQuery.js | amazeui.js
 * !!! Put this script in the latest.
 * Init the BDZCF, init that animate, init all....
- ---------------------------------*/
-
+---------------------------------*/
 
 (function($){
 	"use strict";
@@ -541,14 +540,23 @@
 				if(hash === "" || hash === "/"){
 					// to top
 					document.title = def_title;
-
-
 					this.isTop = true;
-
 				}
 
-
 				this.prevHash = hash;
+			}
+		},
+		valid: {
+			verCode: function(){
+				var codeImg = "http://service.bdzcf.com/zcfservice/jcaptcha",
+						codeApi = "84303981186139984975",
+						codeReturn = "";
+				function refreshCode(){
+					// 刷新验证码
+				}
+			},
+			phoneCode: function(){
+
 			}
 		},
 		user: {
@@ -562,11 +570,10 @@
 							alert("签到成功");
 							// 看看怎么发送api给后台来确认签到状态
 							$(this).html("已签到");
-							$(this).attr({"disabled":"disabled"});
+							$(this).attr({"disabled":"true"});
 						}
 					});
 				}
-
 			},
 			login: function(){
 				// 登录
@@ -578,7 +585,7 @@
 			signup: function(){
 				// 注册
 				var api = "/user/signup";
-
+				var name = "nothing";
 			},
 			logout: function(){
 				cleanCookie();
@@ -633,9 +640,6 @@
 			this.pageview.init_rside();
 			this.pageview.rePage();
 			// $(zcf.ready);
-		},
-		moca: {
-			// 测试用路由路径等
 		},
 		ready: (function(){
 			var self = function(){
